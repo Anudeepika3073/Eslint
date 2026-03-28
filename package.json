@@ -39,8 +39,7 @@
     "ts-jest": "^29.2.5",
     "tsx": "^4.19.2",
     "typescript-eslint": "^8.12.2"
-  }
-},
+  },
   "cds": {
     "requires": {
       "db": {
@@ -62,20 +61,14 @@
               "roles": []
             },
             "martha": {
-              "roles": [
-                "reviewer"
-              ]
+              "roles": ["reviewer"]
             },
             "amy": {
-              "roles": [
-                "processor"
-              ]
+              "roles": ["processor"]
             },
             "admin": {
               "password": "admin",
-              "roles": [
-                "admin"
-              ]
+              "roles": ["admin"]
             }
           }
         }
@@ -91,31 +84,21 @@
       "[node!]": {
         "target": "gen",
         "tasks": [
-          {
-            "for": "nodejs"
-          },
-          {
-            "for": "typescript"
-          },
-          {
-            "for": "hana"
-          }
+          { "for": "nodejs" },
+          { "for": "typescript" },
+          { "for": "hana" }
         ]
       },
       "[java]": {
         "target": ".",
         "tasks": [
-          {
-            "for": "java-cf"
-          }
+          { "for": "java-cf" }
         ]
       },
       "[hana]": {
         "target": "gen",
         "tasks": [
-          {
-            "for": "hana"
-          }
+          { "for": "hana" }
         ]
       }
     },
@@ -131,9 +114,7 @@
     "testTimeout": 20000
   },
   "mocha": {
-    "node-option": [
-      "import=tsx"
-    ],
+    "node-option": ["import=tsx"],
     "require": "test/setup.ts",
     "spec": "test/**/*.ts",
     "timeout": 20000
