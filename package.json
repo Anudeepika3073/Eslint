@@ -8,16 +8,13 @@
   "engines": {
     "node": ">=20"
   },
-  "scripts": {
-    "lint": "npx eslint .",
-    "lint:sonar": "eslint . -f node_modules/eslint-formatter-sonarqube -o eslint-report.xml",
-    "start": "cds-serve",
-    "build:ui": "npm run build --prefix app/travel_analytics && npm run build --prefix app/travel_processor",
-    "test": "jest",
-    "test:mocha": "npx -y mocha",
-    "travel-processor": "cds watch --open sap.fe.cap.travel/index.html?sap-ui-xx-viewCache=false",
-    "travel-analytics": "cds watch --open sap.fe.cap.travel_analytics/index.html?sap-ui-xx-viewCache=false"
-  },
+ "scripts": {
+  "lint": "eslint .",
+  "lint:sonar": "eslint . -f json -o eslint-report.json",
+  "start": "cds-serve",
+  "build:ui": "npm run build --prefix app/travel_analytics && npm run build --prefix app/travel_processor",
+  "test": "jest"
+}
   "dependencies": {
     "@cap-js/hana": ">=2",
     "@sap/cds": ">=9.5",
