@@ -10,7 +10,8 @@
   },
 "scripts": {
   "lint": "eslint .",
-  "lint:sonar": "eslint . -f sonarqube -o eslint-report.json",
+   "lint": "eslint . -f checkstyle -o lint.xml",
+   "lint:sonar": "eslint . -f sonarqube -o eslint-report.json",
   "start": "cds-serve",
   "build:ui": "npm run build --prefix app/travel_analytics && npm run build --prefix app/travel_processor",
   "test": "jest"
