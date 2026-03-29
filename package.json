@@ -42,30 +42,18 @@
   },
   "cds": {
     "requires": {
-      "db": {
-        "kind": "sql"
-      },
+      "db": { "kind": "sql" },
       "[production]": {
-        "db": {
-          "kind": "hana"
-        },
-        "auth": {
-          "kind": "xsuaa"
-        }
+        "db": { "kind": "hana" },
+        "auth": { "kind": "xsuaa" }
       },
       "[development]": {
         "auth": {
           "kind": "mocked-auth",
           "users": {
-            "rose": {
-              "roles": []
-            },
-            "martha": {
-              "roles": ["reviewer"]
-            },
-            "amy": {
-              "roles": ["processor"]
-            },
+            "rose": { "roles": [] },
+            "martha": { "roles": ["reviewer"] },
+            "amy": { "roles": ["processor"] },
             "admin": {
               "password": "admin",
               "roles": ["admin"]
@@ -73,60 +61,6 @@
           }
         }
       }
-    },
-    "log": {
-      "service": true
-    },
-    "fiori": {
-      "wrap_multiple_errors": false
-    },
-    "build": {
-      "[node!]": {
-        "target": "gen",
-        "tasks": [
-          { "for": "nodejs" },
-          { "for": "typescript" },
-          { "for": "hana" }
-        ]
-      },
-      "[java]": {
-        "target": ".",
-        "tasks": [
-          { "for": "java-cf" }
-        ]
-      },
-      "[hana]": {
-        "target": "gen",
-        "tasks": [
-          { "for": "hana" }
-        ]
-      }
-    },
-    "typer": {
-      "output_directory": "@cds-models",
-      "use_entities_proxy": true
     }
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "globalSetup": "./test/setup.ts",
-    "testEnvironment": "node",
-    "testTimeout": 20000
-  },
-  "mocha": {
-    "node-option": ["import=tsx"],
-    "require": "test/setup.ts",
-    "spec": "test/**/*.ts",
-    "timeout": 20000
-  },
-  "sapux": [
-    "app/travel_processor",
-    "app/travel_analytics"
-  ],
-  "workspaces": [
-    "app/*"
-  ],
-  "imports": {
-    "#cds-models/*": "./@cds-models/*/index.js"
   }
 }
